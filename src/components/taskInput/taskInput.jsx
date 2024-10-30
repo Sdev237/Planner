@@ -13,6 +13,7 @@ export const TaskInput = ({addTask}) => {
     if (taskTitle.trim()) {
       addTask(taskTitle);
       setTaskTitle("");
+      
     }
   };
 
