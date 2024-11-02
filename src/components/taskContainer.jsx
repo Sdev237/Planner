@@ -40,14 +40,14 @@ export const TaskContainer = () => {
 
   const { completedTasks, incompletedTasks } = getTaskCounts(); // Récupération des comptes de tâches
 
-  console.log(completedTasks, incompletedTasks); // Affichage des comptes dans la console
-  
+ 
+  console.log(incompletedTasks);
   
   return (
     <main>
       <Header />
       <TaskInput addTask={addTask} />
-      <TaskList tasks={taskList} editTask={editTask} deleteTask={deleteTask} />
+      <TaskList taskList={taskList} incompletedTasks={incompletedTasks} editTask={editTask} deleteTask={deleteTask} />
       <Footer />
     </main>
   );
