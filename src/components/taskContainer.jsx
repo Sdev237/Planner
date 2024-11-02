@@ -5,15 +5,15 @@ import { TaskList } from './taskList/taskList';
 import { Footer } from './footer/footer';
 
 export const TaskContainer = () => {
-  const [taskList, setTaskList] = useState([]); // Initialisation de taskList comme un tableau vide
+  const [taskList, setTaskList] = useState([]); 
 
   const addTask = (title) => {
     const newTask = {
-      id: taskList.length + 1,
+      id: taskList.length  ? taskList[taskList.length - 1].id + 1 : 1,
       title: title,
       completed: false,
     };
-    setTaskList([...taskList, newTask]); // Ajout de la nouvelle tâche à taskList
+    setTaskList([...taskList, newTask]); 
   };
 
   const editTask = (id, completedValue) => {
@@ -21,16 +21,16 @@ export const TaskContainer = () => {
       taskList.map((task) =>
         task.id === id ? { ...task, completed: completedValue } : task
       )
-    ); // Modification de l'état de complétion d'une tâche
+    ); 
   };
 
   const deleteTask = (id) => {
-    setTaskList(taskList.filter((task) => task.id !== id)); // Suppression de la tâche par son id
+    setTaskList(taskList.filter((task) => task.id !== id)); 
   };
 
   const getTaskCounts = () => {
-    const completedTasks = taskList.filter((task) => task.completed).length; // Compte des tâches complètes
-    const incompletedTasks = taskList.length - completedTasks; // Compte des tâches incomplètes
+    const completedTasks = taskList.filter((task) => task.completed).length;
+    const incompletedTasks = taskList.length - completedTasks; 
   
     return {
       completedTasks,
@@ -38,7 +38,7 @@ export const TaskContainer = () => {
     };
   };
 
-  const { completedTasks, incompletedTasks } = getTaskCounts(); // Récupération des comptes de tâches
+  const { completedTasks, incompletedTasks } = getTaskCounts(); 
 
  
   console.log(incompletedTasks);
@@ -48,7 +48,7 @@ export const TaskContainer = () => {
       <Header />
       <TaskInput addTask={addTask} />
       <TaskList taskList={taskList} incompletedTasks={incompletedTasks} editTask={editTask} deleteTask={deleteTask} />
-      <Footer />
+      <Footer completedTasks={completedTasks} />
     </main>
   );
 };
