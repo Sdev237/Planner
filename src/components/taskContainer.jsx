@@ -4,52 +4,50 @@ import { TaskInput } from './taskInput/taskInput';
 import { TaskList } from './taskList/taskList';
 import { Footer } from './footer/footer';
 
-// Ce composant est utilisé pour afficher l'intégralité de la fonctionalité de Tache.
 export const TaskContainer = () => {
+  const [taskList, setTaskList] = useState([]); // Initialisation de taskList comme un tableau vide
 
-  const [taskList, setTaskList] = useState([]);
-
-  const addTask = (title) =>{
+  const addTask = (title) => {
     const newTask = {
       id: taskList.length + 1,
       title: title,
       completed: false,
     };
-    setTaskList([...taskList, newTask])
+    setTaskList([...taskList, newTask]); // Ajout de la nouvelle tâche à taskList
   };
 
-  const editTask = (id, completedValue) =>{ 
+  const editTask = (id, completedValue) => {
     setTaskList(
       taskList.map((task) =>
-        task.id === id ? { ...task, completed : completedValue } : task
+        task.id === id ? { ...task, completed: completedValue } : task
       )
-    );
-  }
-
-  const deleteTask = (id) =>{
-    setTaskList(taskList.filter((task) => task.id !== id))
+    ); // Modification de l'état de complétion d'une tâche
   };
 
-  const getTaskCounts = () =>{
-    const completedTasks = taskList.filter((task)=>task.completed.length)
-    const incompletedTasks = taskList.length - completedTasks;
+  const deleteTask = (id) => {
+    setTaskList(taskList.filter((task) => task.id !== id)); // Suppression de la tâche par son id
+  };
 
-    return{
+  const getTaskCounts = () => {
+    const completedTasks = taskList.filter((task) => task.completed).length; // Compte des tâches complètes
+    const incompletedTasks = taskList.length - completedTasks; // Compte des tâches incomplètes
+  
+    return {
       completedTasks,
       incompletedTasks
-    }
+    };
+  };
 
-  }
-  const {completedTasks, incompletedTasks} = getTaskCounts;
+  const { completedTasks, incompletedTasks } = getTaskCounts(); // Récupération des comptes de tâches
 
-  console.log(completedTasks, incompletedTasks);
+  console.log(completedTasks, incompletedTasks); // Affichage des comptes dans la console
   
-
+  
   return (
     <main>
       <Header />
-      <TaskInput addTask={addTask}/>
-      <TaskList />
+      <TaskInput addTask={addTask} />
+      <TaskList tasks={taskList} editTask={editTask} deleteTask={deleteTask} />
       <Footer />
     </main>
   );
