@@ -33,7 +33,7 @@ export const TaskList = ({taskList, editTask, deleteTask, incompletedTasks}) => 
       return(
         <div className="box">
           <h2 className={styles.emptyState}>
-            Salut, Profitez de votre temps libre, il n'y a aucune tâche à accomplir pour le moment !
+            Salut, Profitez de votre temps libre, il n'y a aucune tâche à accomplir pour le moment !!
           </h2>
         </div>
       );
