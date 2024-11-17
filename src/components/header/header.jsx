@@ -11,10 +11,10 @@ export const Header = () => {
         <div>
           <h1>TaskFlow</h1>
           <div className="color-gray">
-            <code>Essayez cette application, vous ne le regretterez pas</code>
+            <code>Essayez cette application , vous ne le regretterez pas</code>
           </div>
           <div className="color-gray">
-            <code>Éliminez le chaos, suivez le flux</code>
+            <code>Éliminez le chaos , suivez le flux</code>
           </div>
         </div>
       </div>
