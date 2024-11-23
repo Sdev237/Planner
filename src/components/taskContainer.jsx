@@ -41,7 +41,9 @@ export const TaskContainer = () => {
   };
 
   const deleteTask = (id) => {
-    setTaskList(taskList.filter((task) => task.id !== id)); 
+    const updatedTasks = taskList.filter((task) => task.id !== id);
+    setTaskList(updatedTasks); 
+    saveTasksToLocalStorage(updatedTasks);
   };
 
   const getTaskCounts = () => {
