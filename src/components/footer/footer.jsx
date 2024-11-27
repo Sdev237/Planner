@@ -8,7 +8,7 @@ export const Footer = ({completedTasks}) => {
     return (
       <footer>
         <code className={styles.footer}>
-          Avec TaskFlow tu as éliminé {completedTasks} tache
+          Avec TaskFlow tu as éliminé {completedTasks} taches
           {completedTasks > 1 ? 's' : ''}
         </code>
       </footer>
