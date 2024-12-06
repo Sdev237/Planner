@@ -9,7 +9,7 @@ Currently, two official plugins are available:
 
 # Getting Started
 
-In the project directory, you can run:
+In the project directory,you can run:
 
 ### `npm install`
 
