@@ -14,7 +14,7 @@ export const Header = () => {
             <code>Essayez cette application , vous ne le regretterez pas</code>
           </div>
           <div className="color-gray">
-            <code>Éliminez le chaos , suivez le flu !!x</code>
+            <code>Éliminez le chaos , suivez le flux</code>
           </div>
         </div>
       </div>
